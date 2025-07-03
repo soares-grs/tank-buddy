@@ -118,7 +118,7 @@ const blockInvalidChars = (event: any) => {
           <h2 class="text-3xl font-bold">{{ questions[step].title }}</h2>
           <!-- @vue-ignore -->
           <input
-          v-if="questions[step].type === 'number'"
+            v-if="questions[step].type === 'number'"
             type="number"
             v-model.number="answers[questions[step].field]"
             :placeholder="questions[step].placeholder"
@@ -162,6 +162,17 @@ const blockInvalidChars = (event: any) => {
         </div>
       </transition>
     </div>
+    <footer class="absolute bottom-0 z-10 mt-6 mb-4 text-gray-500 text-sm">
+      Desenvolvido por
+      <a
+        href="https://github.com/soares-grs"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="underline hover:text-yellow-400 transition-colors"
+      >
+        soares-grs
+      </a>
+    </footer>
   </div>
 </template>
 

@@ -170,7 +170,7 @@ function toggleTooltip() {
     <div class="max-w-5xl mx-auto mt-12 text-center relative z-10">
       <button
         @click="goToRegister"
-        class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-semibold py-3 px-8 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105"
+        class="bg-yellow-400 cursor-pointer hover:bg-yellow-300 text-gray-900 font-semibold py-3 px-8 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105"
       >
         Registrar novo abastecimento
       </button>

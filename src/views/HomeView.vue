@@ -6,6 +6,8 @@ const router = useRouter();
 const handleContinue = () => {
   router.push("/register");
 };
+
+const githubUrl = ""; // substitua pelo seu usuário GitHub real
 </script>
 
 <template>
@@ -34,6 +36,18 @@ const handleContinue = () => {
         Começar
       </button>
     </div>
+
+    <footer class="absolute bottom-0 z-10 mt-6 mb-4 text-gray-500 text-sm">
+      Desenvolvido por
+      <a
+        href="https://github.com/soares-grs"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="underline hover:text-yellow-400 transition-colors"
+      >
+        soares-grs
+      </a>
+    </footer>
   </div>
 </template>
 
