@@ -1,5 +1,5 @@
-<script setup>
-import { ref, computed, watch } from "vue";
+<script lang="ts" setup>
+import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 
 const step = ref(0);
@@ -37,6 +37,7 @@ const errorMessage = ref("");
 
 const isCurrentAnswerValid = computed(() => {
   const currentField = questions[step.value].field;
+  // @ts-ignore
   const currentValue = answers.value[currentField];
 
   if (
@@ -72,6 +73,7 @@ const nextStep = () => {
   if (!isCurrentAnswerValid.value) return;
 
   const currentField = questions[step.value].field;
+  // @ts-ignore
   const currentValue = answers.value[currentField];
 
   localStorage.setItem(currentField, JSON.stringify(currentValue));
@@ -84,14 +86,15 @@ const nextStep = () => {
   }
 };
 
-const preventNegativeInput = (event, field) => {
+const preventNegativeInput = (event: any, field: any) => {
   const value = Number(event.target.value);
   if (value < 0) {
+    // @ts-ignore
     answers.value[field] = null;
   }
 };
 
-const blockInvalidChars = (event) => {
+const blockInvalidChars = (event: any) => {
   if (["e", "E", "+", "-"].includes(event.key)) {
     event.preventDefault();
   }
@@ -113,9 +116,9 @@ const blockInvalidChars = (event) => {
       <transition name="fade-slide" mode="out-in">
         <div :key="step" class="space-y-6">
           <h2 class="text-3xl font-bold">{{ questions[step].title }}</h2>
-
+          <!-- @vue-ignore -->
           <input
-            v-if="questions[step].type === 'number'"
+          v-if="questions[step].type === 'number'"
             type="number"
             v-model.number="answers[questions[step].field]"
             :placeholder="questions[step].placeholder"
